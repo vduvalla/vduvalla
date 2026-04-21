@@ -2,7 +2,7 @@
 
 **Senior Data Scientist | AI-Driven Financial Forecasting | MLOps | FinTech**
 
-📍 Prosper, TX &nbsp;|&nbsp; 📧 duvallavarunraj@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://linkedin.com/in/duvallavarunraj)
+📍 Aubrey, TX &nbsp;|&nbsp; 📧 duvallavarunraj@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://linkedin.com/in/duvallavarunraj)
 
 ---
 
