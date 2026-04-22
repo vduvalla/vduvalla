@@ -1,4 +1,4 @@
-# Varun Raj Duvalla
+# Varun Raj Duvalla - [View Resume](https://vduvalla.github.io/vduvalla/resume.html)
 
 **Senior Data Scientist - AI-Driven Financial Forecasting | MLOps | FinTech**
 
