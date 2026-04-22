@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varun Raj Duvalla - Senior Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2340;
+    --blue: #1a4a7a;
+    --accent: #2d7dd2;
+    --accent-light: #e8f2fc;
+    --gold: #c9933a;
+    --gold-light: #fdf6ec;
+    --text: #1a1a2e;
+    --muted: #5a6478;
+    --border: #dde3ec;
+    --bg: #f7f9fc;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,35,64,0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    border-bottom: 1px solid rgba(45,125,210,0.3);
+  }
+  nav .nav-name {
+    font-family: 'DM Serif Display', serif;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+  }
+  nav .nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+  }
+  nav .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  nav .nav-links a:hover { color: white; background: rgba(45,125,210,0.25); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #163766 60%, #1a4a7a 100%);
+    padding: 72px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(45,125,210,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 20%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,147,58,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(45,125,210,0.2);
+    border: 1px solid rgba(45,125,210,0.4);
+    color: #7db8f0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { color: #7db8f0; font-style: italic; }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  .hero-links { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero-link:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); color: white; }
+
+
+  /* HEADSHOT */
+  .hero-layout { display: flex; align-items: flex-start; gap: 36px; }
+  .hero-photo {
+    flex-shrink: 0;
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid rgba(45,125,210,0.6);
+    box-shadow: 0 0 0 5px rgba(45,125,210,0.15), 0 8px 24px rgba(0,0,0,0.3);
+    margin-top: 4px;
+  }
+  .hero-content { flex: 1; }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .stat {
+    background: rgba(255,255,255,0.06);
+    padding: 16px 20px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .stat:hover { background: rgba(255,255,255,0.1); }
+  .stat-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: white;
+    display: block;
+    line-height: 1.1;
+  }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 500; letter-spacing: 0.04em; margin-top: 3px; text-transform: uppercase; }
+
+  /* MAIN LAYOUT */
+  main { max-width: 900px; margin: 0 auto; padding: 48px 40px; }
+
+  /* SECTION */
+  section { margin-bottom: 52px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 34px; height: 34px;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .exp-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); transform: translateY(-1px); }
+  .exp-item.expanded .exp-details { display: block; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .exp-left { flex: 1; }
+  .exp-company { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .exp-role { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .exp-meta { font-size: 12.5px; color: var(--muted); }
+  .exp-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .exp-badge {
+    background: var(--gold-light);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(201,147,58,0.25);
+    white-space: nowrap;
+  }
+  .exp-toggle { font-size: 18px; color: var(--muted); transition: transform 0.2s; user-select: none; }
+  .exp-item.expanded .exp-toggle { transform: rotate(180deg); }
+  .exp-details { display: none; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); animation: fadeIn 0.25s ease; }
+  .exp-highlights { list-style: none; }
+  .exp-highlights li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .exp-highlights li::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+  .exp-metrics { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .metric-pill {
+    background: var(--accent-light);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(45,125,210,0.2);
+  }
+
+  /* PUBLICATIONS */
+  .pub-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .pub-item:hover { box-shadow: 0 3px 14px rgba(0,0,0,0.07); }
+  .pub-num { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--border); flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .pub-title { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 5px; line-height: 1.4; }
+  .pub-journal { font-size: 12px; color: var(--muted); }
+  .pub-doi { font-size: 11.5px; color: var(--accent); margin-top: 4px; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .skill-group-title { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+
+  /* MEMBERSHIPS */
+  .membership-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .membership-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .membership-icon { font-size: 22px; flex-shrink: 0; }
+  .membership-org { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .membership-grade { font-size: 12px; font-weight: 600; color: var(--gold); margin-bottom: 3px; }
+  .membership-desc { font-size: 11.5px; color: var(--muted); line-height: 1.45; }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .edu-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .edu-degree { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .edu-school { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
+  .edu-year { font-size: 11.5px; color: var(--accent); font-weight: 600; }
+
+  /* REVIEW SECTION */
+  .review-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .review-stat {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .review-stat-val { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--navy); display: block; }
+  .review-stat-label { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 40px;
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+  }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 680px) {
+    .hero h1 { font-size: 32px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    main { padding: 32px 20px; }
+    .skills-grid, .membership-grid, .edu-grid, .review-stat-row { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+    .hero-layout { flex-direction: column; align-items: center; text-align: center; }
+    .hero-links { justify-content: center; }
+    #current-focus .grid-2col { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Varun Raj Duvalla</span>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#current-focus">Current Focus</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#memberships">Memberships</a></li>
+    <li><a href="#education">Education</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Senior Data Scientist</div>
+    <h1>Varun Raj <em>Duvalla</em></h1>
+    <p class="hero-sub">AI-Driven Financial Forecasting &nbsp;·&nbsp; MLOps &nbsp;·&nbsp; FinTech &nbsp;·&nbsp; Aubrey, TX</p>
+    <div class="hero-links">
+      <a href="mailto:duvallavarunraj@gmail.com" class="hero-link">✉ duvallavarunraj@gmail.com</a>
+      <a href="https://linkedin.com/in/duvallavarunraj" target="_blank" class="hero-link">💼 LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=J-78yCwAAAAJ&hl=en" target="_blank" class="hero-link">🎓 Google Scholar</a>
+    </div>
+    </div></div><!-- /hero-content /hero-layout -->
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-val">$5.1B</span><span class="stat-label">TPV Portfolio (2025)</span></div>
+      <div class="stat"><span class="stat-val">13.1M</span><span class="stat-label">Monthly Active Users</span><span style="display:block;font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px;letter-spacing:0.03em;">$31.4B in payments planned</span></div>
+      <div class="stat"><span class="stat-val">50+</span><span class="stat-label">Papers Reviewed</span></div>
+      <div class="stat"><span class="stat-val">5</span><span class="stat-label">Publications</span></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-icon">💼</div>
+      <h2 class="section-title">Professional Experience</h2>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <div class="exp-left">
+          <div class="exp-company">PayPal</div>
+          <div class="exp-role">Senior Data Scientist</div>
+          <div class="exp-meta">Remote, TX &nbsp;·&nbsp; 2025 - Present</div>
+        </div>
+        <div class="exp-right">
+          <span class="exp-badge">Current</span>
+          <span class="exp-toggle">⌄</span>
+        </div>
+      </div>
+      <div class="exp-details">
+        <ul class="exp-highlights">
+          <li>Lead forecasting strategy across PayPal Credit's full US and UK product suite - a portfolio generating $5.10B in net Total Payment Volume in 2025.</li>
+          <li>Pioneering AI-powered interactive analytics dashboards using Claude Code and Model Context Protocol (MCP) - building reusable components deployable independently across teams.</li>
+          <li>Architected a serverless data layer using DuckDB + Parquet + GitHub Pages, eliminating backend infrastructure dependencies while delivering richer executive-facing UIs.</li>
+          <li>Built an embedded AI Analysis module using the Claude API enabling C-suite executives to query live datasets in natural language and surface real-time insights.</li>
+          <li>Developing a customer churn forecasting model (Prophet + XGBoost ensemble) supporting lifetime value optimization across the credit portfolio.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">$5.1B TPV Portfolio</span>
+          <span class="metric-pill">Claude API / MCP</span>
+          <span class="metric-pill">Agentic Dashboards</span>
+          <span class="metric-pill">DuckDB + Parquet</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <div class="exp-left">
+          <div class="exp-company">PayPal</div>
+          <div class="exp-role">Data Scientist</div>
+          <div class="exp-meta">Remote, TX &nbsp;·&nbsp; 2022 - 2025</div>
+        </div>
+        <div class="exp-right">
+          <span class="exp-toggle">⌄</span>
+        </div>
+      </div>
+      <div class="exp-details">
+        <ul class="exp-highlights">
+          <li>Designed and owned PayPal's first dedicated ML forecasting system for First-Time Credit Users (FTUs) - a north-star metric with no prior forecasting coverage - across four products and two international markets.</li>
+          <li>Engineered an adaptive forecasting architecture combining deep learning sequence modeling, gradient-boosted ensembles, probabilistic Bayesian frameworks, and seasonal decomposition.</li>
+          <li>Delivered 23% improvement in FTU forecast accuracy; portfolio grew from 2.95M users / $4.60B TPV (2024) to 3.26M / $5.10B (2025).</li>
+          <li>Overhauled MAU forecasting, replacing a manual Excel process with a fully automated ML pipeline delivering 18% accuracy improvement across a 13.1M user / $31.42B TPV portfolio.</li>
+          <li>Automated the full model lifecycle (training, backtesting, deployment, monitoring) - reducing manual effort by 45% and deployment time by 55%.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">+23% FTU Accuracy</span>
+          <span class="metric-pill">+18% MAU Accuracy</span>
+          <span class="metric-pill">-45% Manual Overhead</span>
+          <span class="metric-pill">13.1M MAUs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <div class="exp-left">
+          <div class="exp-company">PayPal</div>
+          <div class="exp-role">Decision Scientist</div>
+          <div class="exp-meta">Timonium, MD &nbsp;·&nbsp; 2020 - 2022</div>
+        </div>
+        <div class="exp-right">
+          <span class="exp-toggle">⌄</span>
+        </div>
+      </div>
+      <div class="exp-details">
+        <ul class="exp-highlights">
+          <li>Built a Python-based data quality validation library automating anomaly detection, dependency checks, and real-time pipeline logging across BigQuery and Teradata - cutting data discrepancies by 27% and manual quality checks by 65%.</li>
+          <li>Library saved 1,000+ analyst hours per team annually (~$75K/year); adopted across multiple PayPal Credit Analytics teams, multiplying impact organization-wide.</li>
+          <li>Designed and executed A/B testing campaigns for customer acquisition using propensity-score-based segmentation - driving a 14% lift in conversion rates.</li>
+          <li>Contributed to 817,000 new US accounts and $1.2B in net Total Payment Volume through targeted acquisition campaigns.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">-27% Data Errors</span>
+          <span class="metric-pill">1K+ Hours Saved/Team</span>
+          <span class="metric-pill">+14% Conversion Lift</span>
+          <span class="metric-pill">817K New Accounts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <div class="exp-left">
+          <div class="exp-company">Check Into Cash</div>
+          <div class="exp-role">Data Analyst</div>
+          <div class="exp-meta">Chattanooga, TN &nbsp;·&nbsp; 2018 - 2020</div>
+        </div>
+        <div class="exp-right">
+          <span class="exp-toggle">⌄</span>
+        </div>
+      </div>
+      <div class="exp-details">
+        <ul class="exp-highlights">
+          <li>Designed a logistic regression model to predict loan defaults - increasing repayment rates by 17% and recovering ~$134K in monthly repayments.</li>
+          <li>Deployed a K-means clustering model to segment customers by loan application likelihood - increasing SMS campaign conversion by 11.3% and reducing unnecessary outreach by 20%.</li>
+          <li>Applied Clarabridge NLP sentiment analysis to detect emerging fraud patterns - reducing fraudulent activity by 8% and improving positive customer feedback scores by 10%.</li>
+          <li>Built automated regex-driven pipelines within Clarabridge to flag negative sentiment trends and streamline high-risk case workflows.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">+17% Repayment Rate</span>
+          <span class="metric-pill">$134K/mo Recovered</span>
+          <span class="metric-pill">-8% Fraud</span>
+          <span class="metric-pill">+11.3% SMS Conversion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT FOCUS -->
+  <section id="current-focus">
+    <div class="section-header">
+      <div class="section-icon">🔭</div>
+      <h2 class="section-title">Current Focus</h2>
+    </div>
+    <p style="font-size:13.5px; color:var(--muted); margin-bottom:20px; line-height:1.6;">
+      Active research and engineering threads at the frontier of agentic AI applied to enterprise financial analytics — areas with limited published precedent at production scale.
+    </p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+
+      <div style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:10px; padding:20px 20px;">
+        <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Natural Language for Decision Support</div>
+        <div style="font-size:13.5px; color:var(--text); line-height:1.6;">Building embedded AI modules using LLM APIs that allow C-suite stakeholders to query live financial datasets conversationally - investigating how LLM-generated insight compares to structured dashboard outputs in accuracy, latency, and decision confidence.</div>
+      </div>
+
+      <div style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:10px; padding:20px 20px;">
+        <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Serverless ML Infrastructure</div>
+        <div style="font-size:13.5px; color:var(--text); line-height:1.6;">Architecting DuckDB + Parquet + GitHub Pages pipelines that eliminate backend dependencies while maintaining analytical richness - exploring the performance boundaries and data freshness tradeoffs of fully client-side analytical architectures at enterprise scale.</div>
+      </div>
+
+      <div style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--gold); border-radius:10px; padding:20px 20px;">
+        <div style="font-size:11px; font-weight:700; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Reusable Agentic Frameworks via MCP</div>
+        <div style="font-size:13.5px; color:var(--text); line-height:1.6;">Designing Model Context Protocol (MCP) skill systems that allow non-technical teams to independently deploy production-grade AI dashboards - studying how agentic component reuse patterns affect adoption velocity and output reliability across business units.</div>
+      </div>
+
+      <div style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--gold); border-radius:10px; padding:20px 20px;">
+        <div style="font-size:11px; font-weight:700; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Ensemble Churn Forecasting</div>
+        <div style="font-size:13.5px; color:var(--text); line-height:1.6;">Developing Prophet + XGBoost ensemble models for customer churn prediction with calibrated confidence intervals - investigating how early intervention timing affects lifetime value recovery in revolving credit portfolios.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-header">
+      <div class="section-icon">📄</div>
+      <h2 class="section-title">Peer-Reviewed Publications</h2>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">
+      🎓 <a href="https://scholar.google.com/citations?user=J-78yCwAAAAJ&hl=en" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:600;">View full profile on Google Scholar</a>
+    </p>
+
+    <a class="pub-item" href="https://doi.org/10.52783/jisem.v10i60s.13039" target="_blank">
+      <div class="pub-num">01</div>
+      <div>
+        <div class="pub-title">AI in Asset Management: Combining Machine Learning with Human Insight - A Technical Review</div>
+        <div class="pub-journal">Journal of Information Systems Engineering and Management (JISEM)</div>
+        <div class="pub-doi">DOI: 10.52783/jisem.v10i60s.13039</div>
+      </div>
+    </a>
+    <a class="pub-item" href="https://doi.org/10.32996/jcsts.2025.7.4.12" target="_blank">
+      <div class="pub-num">02</div>
+      <div>
+        <div class="pub-title">Human-AI Collaboration in Customer Behavior Research: Personalizing Financial Services</div>
+        <div class="pub-journal">Journal of Computer Science and Technology Studies (JCSTS), Vol. 7(4), pp. 106-115</div>
+        <div class="pub-doi">DOI: 10.32996/jcsts.2025.7.4.12</div>
+      </div>
+    </a>
+    <a class="pub-item" href="https://doi.org/10.37745/ejcsit.2013vol13n23115131" target="_blank">
+      <div class="pub-num">03</div>
+      <div>
+        <div class="pub-title">AI-Powered Credit Risk Assessment: Transforming Lending in FinTech</div>
+        <div class="pub-journal">European Journal of Computer Science and Information Technology (EJCSIT), Vol. 13(23), pp. 115-131</div>
+        <div class="pub-doi">DOI: 10.37745/ejcsit.2013vol13n23115131</div>
+      </div>
+    </a>
+    <a class="pub-item" href="https://doi.org/10.30574/wjaets.2025.15.2.0675" target="_blank">
+      <div class="pub-num">04</div>
+      <div>
+        <div class="pub-title">AI-Driven Financial Crisis Prediction: Technical Frameworks and Implementation Strategies</div>
+        <div class="pub-journal">World Journal of Advanced Engineering Technology and Sciences (WJAETS), Vol. 15(2), pp. 1353-1361</div>
+        <div class="pub-doi">DOI: 10.30574/wjaets.2025.15.2.0675</div>
+      </div>
+    </a>
+    <a class="pub-item" href="https://doi.org/10.30574/wjarr.2025.26.2.1778" target="_blank">
+      <div class="pub-num">05</div>
+      <div>
+        <div class="pub-title">Real-Time Fraud Detection in Digital Payments: Leveraging AI and Behavioral Analytics</div>
+        <div class="pub-journal">World Journal of Advanced Research and Reviews (WJARR), Vol. 26(2), pp. 1372-1380</div>
+        <div class="pub-doi">DOI: 10.30574/wjarr.2025.26.2.1778</div>
+      </div>
+    </a>
+  </section>
+
+  <!-- PEER REVIEW -->
+  <section id="review">
+    <div class="section-header">
+      <div class="section-icon">🔬</div>
+      <h2 class="section-title">Peer Review & Scholarly Judging</h2>
+    </div>
+    <div class="review-stat-row">
+      <div class="review-stat"><span class="review-stat-val">20+</span><span class="review-stat-label">International Conferences</span></div>
+      <div class="review-stat"><span class="review-stat-val">50+</span><span class="review-stat-label">Manuscripts Reviewed</span></div>
+      <div class="review-stat"><span class="review-stat-val">16+</span><span class="review-stat-label">IEEE-Affiliated Venues</span></div>
+    </div>
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:10px; padding:16px 20px; font-size:13.5px; color:var(--text); line-height:1.65;">
+      Invited peer reviewer for <strong>20+ international academic conferences (2025-2026)</strong>, independently evaluating <strong>50+ scholarly manuscripts</strong> in AI, machine learning, and data science. Reviewed for <strong>16+ IEEE-affiliated venues</strong> (proceedings indexed in IEEE Xplore) and <strong>3+ Springer-published conferences</strong> (LNNS/CCIS series), including conferences hosted at India's National Institutes of Technology.
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <h2 class="section-title">Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">ML & Modeling</div>
+        <div class="skill-tags">
+          <span class="skill-tag">XGBoost</span><span class="skill-tag">LightGBM</span><span class="skill-tag">Prophet</span><span class="skill-tag">LSTM</span><span class="skill-tag">Transformers</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">Neural Networks</span><span class="skill-tag">Bayesian Forecasting</span><span class="skill-tag">Ensemble Methods</span><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">K-Means</span><span class="skill-tag">Logistic Regression</span><span class="skill-tag">Seasonal Decomposition</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Statistics & Causal Inference</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Causal Inference</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Hypothesis Testing</span><span class="skill-tag">Propensity Score Matching</span><span class="skill-tag">Time Series Analysis</span><span class="skill-tag">Regression Analysis</span><span class="skill-tag">Probabilistic Modeling</span><span class="skill-tag">Feature Engineering</span><span class="skill-tag">Backtesting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">MLOps & Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Automated ML Pipelines</span><span class="skill-tag">Model Deployment</span><span class="skill-tag">Performance Monitoring</span><span class="skill-tag">ETL</span><span class="skill-tag">DuckDB</span><span class="skill-tag">Parquet</span><span class="skill-tag">REST APIs</span><span class="skill-tag">GitHub Pages</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & Data</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GCP BigQuery</span><span class="skill-tag">Airflow</span><span class="skill-tag">AWS Lambda</span><span class="skill-tag">DynamoDB</span><span class="skill-tag">Teradata</span><span class="skill-tag">MySQL</span><span class="skill-tag">MS SQL Server</span>
+        </div>
+      </div>
+      <div class="skill-group" style="grid-column: span 2;">
+        <div class="skill-group-title">AI Development & Visualization</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude Code</span><span class="skill-tag">MCP</span><span class="skill-tag">Claude API</span><span class="skill-tag">Agentic Systems</span><span class="skill-tag">Tableau</span><span class="skill-tag">Looker</span><span class="skill-tag">JavaScript Dashboards</span><span class="skill-tag">NLP</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIPS -->
+  <section id="memberships">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div>
+      <h2 class="section-title">Professional Memberships</h2>
+    </div>
+    <div class="membership-grid">
+      <div class="membership-item">
+        <div class="membership-icon">⚡</div>
+        <div>
+          <div class="membership-org">IEEE</div>
+          <div class="membership-grade">Senior Member</div>
+          <div class="membership-desc">Top 8% of 400,000+ global members. Requires 10+ years of significant performance and endorsement by existing Senior/Fellow members.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-icon">🔬</div>
+        <div>
+          <div class="membership-org">Sigma Xi</div>
+          <div class="membership-grade">Full Member</div>
+          <div class="membership-desc">The Scientific Research Honor Society. Elected by Committee on Qualifications and Membership. Members include 200+ Nobel laureates.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-icon">🌐</div>
+        <div>
+          <div class="membership-org">IFGICT</div>
+          <div class="membership-grade">Fellow</div>
+          <div class="membership-desc">International Federation of Global and Green ICT - United Nations Partner Organization.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-icon">📋</div>
+        <div>
+          <div class="membership-org">IAEME Publication</div>
+          <div class="membership-grade">Fellow Member</div>
+          <div class="membership-desc">Awarded based on qualification, experience, and research expertise in information technology.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-icon">💻</div>
+        <div>
+          <div class="membership-org">Hackathon Raptors (raptors.dev)</div>
+          <div class="membership-grade">Member</div>
+          <div class="membership-desc">Community of technology practitioners and contributors.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-icon">🤖</div>
+        <div>
+          <div class="membership-org">AI 2030</div>
+          <div class="membership-grade">Member</div>
+          <div class="membership-desc">Professional community dedicated to advancing the practice and policy of artificial intelligence.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <div class="section-icon">🎓</div>
+      <h2 class="section-title">Education & Certifications</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="edu-degree">M.S., Information Systems</div>
+        <div class="edu-school">Northwest Missouri State University</div>
+        <div class="edu-year">2016 - 2017</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">B.Tech, Computer Science and Engineering</div>
+        <div class="edu-school">St. Martins Engineering College (JNTUH)</div>
+        <div class="edu-year">2012 - 2016</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Machine Learning Specialization</div>
+        <div class="edu-school">Stanford University via Coursera</div>
+        <div class="edu-year">2020 &nbsp;·&nbsp; ID: PP6ZWHCMCLR3</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">IBM Data Science Professional Certificate</div>
+        <div class="edu-school">IBM via Coursera</div>
+        <div class="edu-year">2019 &nbsp;·&nbsp; ID: 2ZYA79GZ643Z</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p style="margin-bottom:6px;">Varun Raj Duvalla &nbsp;·&nbsp; Senior Data Scientist &nbsp;·&nbsp; Aubrey, TX</p>
+  <p><a href="mailto:duvallavarunraj@gmail.com">duvallavarunraj@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/duvallavarunraj" target="_blank">LinkedIn</a> &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?user=J-78yCwAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
+</footer>
+
+<script>
+  function toggleExp(el) {
+    el.classList.toggle('expanded');
+  }
+  // Auto-expand first item
+  document.querySelector('.exp-item').classList.add('expanded');
+</script>
+
+</body>
+</html>
