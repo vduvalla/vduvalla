@@ -54,9 +54,9 @@ Currently pioneering AI-powered, interactive analytics dashboards using **Claude
 ## 🎖️ Memberships & Fellowships
 
 - **IEEE Senior Member** · Top 8% of 400,000+ global members
-- **Sigma Xi Full Member** · The Scientific Research Honor Society (200+ Nobel laureates)
+- **Sigma Xi Member** · The Scientific Research Honor Society (200+ Nobel laureates)
 - **IFGICT Fellow** · UN Partner Organization
-- **Hackathon Raptors Level Fellow** · raptors.dev
+- **Hackathon Raptors Member** · raptors.dev
 
 ---
 
