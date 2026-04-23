@@ -35,7 +35,7 @@ I've published across five peer-reviewed journals, am an elected IEEE Senior Mem
 ## Projects
 
 ### ML-Driven Growth Forecasting Framework - PayPal Credit & Venmo Credit Card
-*Data Scientist | 2024 - 2025* &nbsp;·&nbsp; 📄 [Technical Methodology](./technical-design-docs/Credit Analytics Job Monitoring Framework_ Technical Design Document.md)
+*Data Scientist | 2024 - 2025* &nbsp;·&nbsp; 📄 [Technical Methodology]([https://github.com/vduvalla/vduvalla/blob/15bd6d233a9f835f11447da965140023e203a5d0/technical-design-docs/Credit%20Analytics%20Job%20Monitoring%20Framework_%20Technical%20Design%20Document.md](https://github.com/vduvalla/vduvalla/blob/f590e8d37e26c91835d3432058c2c0788f7ca493/technical-design-docs/ML-Driven%20Growth%20Forecasting%20Framework_%20Technical%20Design%20Document.md))
 
 PayPal had no production-grade forecasting for First-Time Users across its credit portfolio. MAU forecasting was Excel-based with no statistical rigor, no cross-validation, and no automation. Each quarterly refresh required two to three days of manual work per product. I built the system from scratch.
 
