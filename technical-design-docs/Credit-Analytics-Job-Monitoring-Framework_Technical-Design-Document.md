@@ -1,10 +1,10 @@
 # Credit Analytics Job Monitoring Framework: Technical Design Document
 
-**Author:** Varun Duvvalla, Senior Data Scientist  
+**Author:** Varun Duvvalla, Senior Data Scientist    [About Me](https://github.com/vduvalla/vduvalla/blob/ec14ac992fcd1b6523e5a9aaf2b9fd9ee0763208/about-me/README.md)   
 **Organization:** PayPal Credit Org  
 **Domain:** Consumer Credit and Payments, Data Platform Reliability  
 **Scope:** Metadata-driven data-quality guardrail and orchestration library for batch analytics jobs, and a migration-validation harness used during the organization's Teradata-to-BigQuery migration  
-**Status:** Production
+
 
 ---
 
