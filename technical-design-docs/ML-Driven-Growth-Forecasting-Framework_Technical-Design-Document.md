@@ -1,8 +1,8 @@
-# ML-Driven Growth Forecasting Framework: Technical Design Document                [About Me](https://github.com/vduvalla/vduvalla/blob/ec14ac992fcd1b6523e5a9aaf2b9fd9ee0763208/about-me/README.md)
+# ML-Driven Growth Forecasting Framework: Technical Design Document                
 
-**Author:** Varun Duvvalla, Senior Data Scientist  
-**Domain:** Consumer Credit and Payments, Digital Financial Services  
-**Scope:** Multi-product, multi-market ML forecasting system for user growth metrics  
+**Author:** Varun Duvalla, Senior Data Scientist   [About Me](https://github.com/vduvalla/vduvalla/blob/ec14ac992fcd1b6523e5a9aaf2b9fd9ee0763208/about-me/README.md)   
+**Domain:** Consumer Credit and Payments, Digital Financial Services   
+**Scope:** Multi-product, multi-market ML forecasting system for user growth metrics   
 **Status:** Production (v1 deployed; v2 under active development)
 
 ---
