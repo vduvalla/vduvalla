@@ -52,7 +52,7 @@ The framework covers four products across two markets. It evaluates 20+ candidat
 ---
 
 ### Credit Analytics Job Monitoring Framework - PayPal Credit Analytics
-*Decision Scientist | 2021* &nbsp;·&nbsp; 📄 [Technical Methodology](https://github.com/vduvalla/vduvalla/blob/edb6575ef5632b2d957fb6132771832dc426b0a1/technical-design-docs/Credit%20Analytics%20Job%20Monitoring%20Framework_%20Technical%20Design%20Document.md))
+*Decision Scientist | 2021* &nbsp;·&nbsp; 📄 [Technical Methodology](https://github.com/vduvalla/vduvalla/blob/edb6575ef5632b2d957fb6132771832dc426b0a1/technical-design-docs/Credit%20Analytics%20Job%20Monitoring%20Framework_%20Technical%20Design%20Document.md)
 
 Batch analytics jobs at PayPal Credit were running blind, executing on whatever data was present at job time. Partial loads, late partitions, duplicate records, and silent value drift went undetected until stakeholders caught them in dashboards, often days later. Root-causing a bad metric required hours of investigation.
 
