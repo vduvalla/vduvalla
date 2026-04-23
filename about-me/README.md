@@ -35,7 +35,7 @@ I've published across five peer-reviewed journals, am an elected IEEE Senior Mem
 ## Projects
 
 ### ML-Driven Growth Forecasting Framework - PayPal Credit & Venmo Credit Card
-*Data Scientist | 2024 - 2025* &nbsp;·&nbsp; 📄 [Technical Methodology](https://github.com/vduvalla/vduvalla/blob/f590e8d37e26c91835d3432058c2c0788f7ca493/technical-design-docs/ML-Driven%20Growth%20Forecasting%20Framework_%20Technical%20Design%20Document.md)
+*Data Scientist | 2024 - 2025* &nbsp;·&nbsp; 📄 [Technical Methodology](https://github.com/vduvalla/vduvalla/blob/e201407c3c38fe0954b08ad51190db5a86fb1712/technical-design-docs/ML-Driven-Growth-Forecasting-Framework_Technical-Design-Document.md)
 
 PayPal had no production-grade forecasting for First-Time Users across its credit portfolio. MAU forecasting was Excel-based with no statistical rigor, no cross-validation, and no automation. Each quarterly refresh required two to three days of manual work per product. I built the system from scratch.
 
@@ -52,7 +52,7 @@ The framework covers four products across two markets. It evaluates 20+ candidat
 ---
 
 ### Credit Analytics Job Monitoring Framework - PayPal Credit Analytics
-*Decision Scientist | 2021* &nbsp;·&nbsp; 📄 [Technical Methodology](https://github.com/vduvalla/vduvalla/blob/edb6575ef5632b2d957fb6132771832dc426b0a1/technical-design-docs/Credit%20Analytics%20Job%20Monitoring%20Framework_%20Technical%20Design%20Document.md)
+*Decision Scientist | 2021* &nbsp;·&nbsp; 📄 [Technical Methodology](https://github.com/vduvalla/vduvalla/blob/e201407c3c38fe0954b08ad51190db5a86fb1712/technical-design-docs/Credit-Analytics-Job-Monitoring-Framework_Technical-Design-Document.md)
 
 Batch analytics jobs at PayPal Credit were running blind, executing on whatever data was present at job time. Partial loads, late partitions, duplicate records, and silent value drift went undetected until stakeholders caught them in dashboards, often days later. Root-causing a bad metric required hours of investigation.
 
