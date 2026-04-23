@@ -2,8 +2,7 @@
 
 **Author:** Varun Duvalla, Senior Data Scientist   [About Me](https://github.com/vduvalla/vduvalla/blob/ec14ac992fcd1b6523e5a9aaf2b9fd9ee0763208/about-me/README.md)   
 **Domain:** Consumer Credit and Payments, Digital Financial Services   
-**Scope:** Multi-product, multi-market ML forecasting system for user growth metrics   
-**Status:** Production (v1 deployed; v2 under active development)
+**Scope:** Multi-product, multi-market ML forecasting system for user growth metrics
 
 ---
 
@@ -34,7 +33,7 @@ The framework I designed and built does this through a few key decisions:
 - **A unified forecasting engine** that supports both FTU and MAU prediction through a shared architectural pattern while accommodating the distinct behavioral dynamics of each metric and product.  
 - **A cross-validated candidate model benchmarking framework** that evaluates 20+ candidate algorithms (linear models, tree-based ensembles, gradient-boosted machines, statistical time-series methods, and deep learning sequence models) and selects the optimal model per product-metric combination through time-ordered cross-validation and AIC/BIC ranking.  
 - **A deep-learning-first design** in which neural sequence models (N-BEATS, a Temporal Fusion Transformer variant, and DeepAR) are full participants in model selection. Deep learning is treated as crucial, not optional: these architectures provide the capacity required to capture long-range dependencies, nonlinear feature interactions, and built-in probabilistic forecast distributions that classical models cannot.  
-- **An ensemble meta-learning layer** (v2) that combines top-performing models via inverse-error weighting, stacking with out-of-fold predictions, and blending to reduce variance and improve reliability.  
+- **An ensemble meta-learning layer**    that combines top-performing models via inverse-error weighting, stacking with out-of-fold predictions, and blending to reduce variance and improve reliability.  
 - **A domain-constrained prediction pipeline** that applies activation rate bounds, holiday penalty adjustments, historical range clipping, trend-aware caps, monotonicity enforcement, and recursion-chain stabilization to ensure forecasts remain within realistic ranges.  
 - **An automated MLOps pipeline** covering data ingestion from the cloud warehouse, validation, model training, backtesting, deployment back to the warehouse, and post-deployment verification, reducing manual effort by 45% and deployment time by 55%.
 
@@ -121,7 +120,7 @@ The framework follows a modular, layered architecture with four principal layers
 - **Lag and momentum features (MAU):** 1-day, 7-day, 14-day, and 30-day lags of the target variable, plus 7-day and 30-day rolling means. These capture short-term momentum and weekly and monthly cyclical patterns.  
 - **external predictors:** Transaction volume (TPV) forecasts interpolated from monthly to daily granularity via linear interpolation between monthly anchor points. Net New Active (NNA) signals from FTU forecasts distributed evenly across days and aggregated into trailing 30-day rolling sums to align with the T30D MAU target window.  
 - **Campaign ingestion.** Marketing and promotional campaigns are ingested from the campaign calendar table in the cloud warehouse and joined to the daily feature frame by date. For each active campaign on each day the pipeline emits: a binary active flag, an intensity index (planned spend or impression volume normalized against trailing 90-day baselines), a days-since-campaign-start counter, a days-until-campaign-end counter, and category one-hot encodings (welcome bonus, cashback boost, partner co-marketing, seasonal, reactivation). Overlapping campaigns are aggregated by summing intensity indices per category. A decayed halo feature applies an exponential decay (half-life 7 days) to capture spillover effects after a campaign ends. Unknown or future campaigns use a planned-versus-executed flag so the model can distinguish committed plan data from historical executed data.  
-- **Interaction and higher-order features (v2):** Fourier terms at yearly, quarterly, and monthly frequencies; piecewise-linear trend segments with data-based changepoints; pairwise and triple feature interactions between campaign intensity, holiday proximity, and day-of-week, yielding approximately 90 features in the expanded v2 pipeline.
+- **Interaction and higher-order features   :** Fourier terms at yearly, quarterly, and monthly frequencies; piecewise-linear trend segments with data-based changepoints; pairwise and triple feature interactions between campaign intensity, holiday proximity, and day-of-week, yielding approximately 90 features in the expanded    pipeline.
 
 **Model Selection Engine.** The feature-enriched dataset enters a cross-validated candidate benchmarking stage (detailed in Section 4) where multiple candidate algorithms are ranked by out-of-sample RMSE on time-ordered cross-validation folds. The selected model is retrained on the full historical dataset before generating predictions.
 
@@ -196,9 +195,9 @@ Instead of expensive nested hyperparameter search, the framework evaluates a cur
 
 **Why this model set?** Each pair (e.g., two Ridge configurations, two RF configurations) spans a regularization spectrum. Rather than running a full grid search, which risks overfitting the validation procedure itself on short time series, this curated set covers the key tradeoffs: bias vs. variance, linear vs. non-linear, bagging vs. boosting.
 
-### 4.2 Advanced Models (v2 Extension)
+### 4.2 Advanced Models (   Extension)
 
-The v2 architecture extends the candidate pool to 20+ models through a extensible registry:
+The    architecture extends the candidate pool to 20+ models through a extensible registry:
 
 **Statistical Time-Series Models:**  
 - **Prophet:** Additive decomposition of trend, yearly and weekly seasonality, and holidays, with configurable changepoint prior scale (0.05). Chosen for its interpretable components and reliable handling of missing data.  
@@ -213,9 +212,9 @@ The v2 architecture extends the candidate pool to 20+ models through a extensibl
 
 **Why deep learning is essential here.** Early experiments gated deep models behind a data-volume threshold and treated them as optional. This was removed because it caused a consistent problem: products on the borderline of the threshold would repeatedly alternate between the deep and classical pools, degrading forecast stability across quarters. The current design includes deep models in every candidate pool. When a Ridge regression beats an LSTM on time-ordered cross-validation, the Ridge still wins, but the decision is made by the data rather than by a configuration heuristic. On products with 24+ months of history, deep models consistently rank in the top three.
 
-### 4.3 Ensemble Meta-Learning (v2)
+### 4.3 Ensemble Meta-Learning   
 
-The v2 framework introduces three ensemble strategies that combine the top-K performing models from the benchmarking stage:
+The    framework introduces three ensemble strategies that combine the top-K performing models from the benchmarking stage:
 
 1. **Weighted Average Ensemble.** Model weights are proportional to the inverse of their cross-validation RMSE: w_i \= (1/RMSE_i) / sum(1/RMSE_j). This gives higher weight to more accurate models while still incorporating diversity from less accurate but complementary models.
 
@@ -379,9 +378,9 @@ Three metrics are computed and reported per product-metric-model combination:
 
 This graceful degradation ensures the pipeline always produces a forecast, even when the data does not support complex modeling, while clearly flagging the reduced confidence in the output.
 
-### 6.4 Confidence Intervals and Uncertainty Quantification (v2)
+### 6.4 Confidence Intervals and Uncertainty Quantification   
 
-The v2 framework provides uncertainty estimates through three complementary mechanisms:
+The    framework provides uncertainty estimates through three complementary mechanisms:
 
 1. **Bootstrap confidence intervals.** The selected model is refit 100 times on bootstrapped (resampled with replacement) training sets. Predictions from all 100 models define the empirical distribution of forecasts at each time step. The 5th and 95th percentiles form the 90% confidence interval.
 
@@ -443,19 +442,19 @@ The framework scaled from an initial deployment on a single product (US co-brand
 
 ### 8.2 What I Would Do Differently
 
-**Earlier investment in uncertainty quantification.** The v1 system produces only point forecasts. Business stakeholders frequently asked "how confident is this forecast?", a question that point forecasts cannot answer. The v2 extension adds confidence intervals, but building this capability from the start would have accelerated stakeholder trust.
+**Earlier investment in uncertainty quantification.** The v1 system produces only point forecasts. Business stakeholders frequently asked "how confident is this forecast?", a question that point forecasts cannot answer. The    extension adds confidence intervals, but building this capability from the start would have accelerated stakeholder trust.
 
-**Unified library with product-specific configuration vs. per-product library copies.** The v1 architecture copies the forecast library into each product directory, enabling independent updates but creating a maintenance burden when cross-cutting changes are needed. The v2 architecture moves to a unified library with a plugin-based model registry, which was the right end state but could have been the starting architecture.
+**Unified library with product-specific configuration vs. per-product library copies.** The v1 architecture copies the forecast library into each product directory, enabling independent updates but creating a maintenance burden when cross-cutting changes are needed. The    architecture moves to a unified library with a plugin-based model registry, which was the right end state but could have been the starting architecture.
 
 ### 8.3 Extensions and Future Directions
 
-**Plugin-Based Model Registry (v2, implemented).** New models are added by implementing a standard interface and registering via a decorator. The core engine discovers and evaluates them automatically. This enabled adding LightGBM, CatBoost, SVR, Prophet, AutoARIMA, Holt-Winters, N-BEATS, TFT, and DeepAR without modifying the selection or orchestration logic.
+**Plugin-Based Model Registry  .** New models are added by implementing a standard interface and registering via a decorator. The core engine discovers and evaluates them automatically. This enabled adding LightGBM, CatBoost, SVR, Prophet, AutoARIMA, Holt-Winters, N-BEATS, TFT, and DeepAR without modifying the selection or orchestration logic.
 
-**Ensemble Meta-Learning (v2, implemented).** Stacking, weighted averaging, and blending ensembles that combine top-performing models. The ensemble participates in the same benchmarking as individual models: it only wins if the combination genuinely outperforms the best individual model.
+**Ensemble Meta-Learning  .** Stacking, weighted averaging, and blending ensembles that combine top-performing models. The ensemble participates in the same benchmarking as individual models: it only wins if the combination genuinely outperforms the best individual model.
 
-**Feature Importance and Interpretability (v2, implemented).** Permutation importance and SHAP (SHapley Additive exPlanations) value computation for tree-based models, and variable-selection-network attention weights for the TFT variant. An automated insight generator identifies the top-3 drivers of forecast direction (e.g., "forecast is primarily driven by positive trend momentum and active welcome-bonus campaigns").
+**Feature Importance and Interpretability  .** Permutation importance and SHAP (SHapley Additive exPlanations) value computation for tree-based models, and variable-selection-network attention weights for the TFT variant. An automated insight generator identifies the top-3 drivers of forecast direction (e.g., "forecast is primarily driven by positive trend momentum and active welcome-bonus campaigns").
 
-**Anomaly Detection (v2, implemented).** Automated detection of three anomaly types in input data: sigma outliers (values more than 3 sigma from rolling mean), jump discontinuities (day-over-day changes more than 2 sigma), and trend breaks (structural changes in trend direction). Detected anomalies are flagged in data quality reports but do not currently trigger automatic remediation.
+**Anomaly Detection  .** Automated detection of three anomaly types in input data: sigma outliers (values more than 3 sigma from rolling mean), jump discontinuities (day-over-day changes more than 2 sigma), and trend breaks (structural changes in trend direction). Detected anomalies are flagged in data quality reports but do not currently trigger automatic remediation.
 
 **Future: Causal Feature Integration.** Incorporating marketing spend, macroeconomic indicators (interest rates, unemployment), and competitive landscape signals as causal features. This requires careful treatment to avoid confounding, planned as a causal inference extension using instrumental variables or difference-in-differences estimation.
 
