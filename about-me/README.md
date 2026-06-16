@@ -2,7 +2,7 @@
 
 **Senior Data Scientist - AI-Driven Financial Forecasting | MLOps | FinTech**
 
-📧 duvallavarunraj@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://linkedin.com/in/duvallavarunraj) &nbsp;|&nbsp; 🎓 [Google Scholar](https://scholar.google.com/citations?user=J-78yCwAAAAJ&hl=en)
+📧 varun.duvalla@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://linkedin.com/in/duvallavarunraj) &nbsp;|&nbsp; 🎓 [Google Scholar](https://scholar.google.com/citations?user=J-78yCwAAAAJ&hl=en)
 
 ---
 
