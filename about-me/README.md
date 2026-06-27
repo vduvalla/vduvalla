@@ -149,5 +149,5 @@ Invited reviewer for **20+ international academic conferences** (2025-2026), eva
 
 ## Education
 
-**M.S., Information Systems** - Northwest Missouri State University (2016-2017)
-**B.Tech, Computer Science and Engineering** - St. Martins Engineering College, JNTUH (2012-2016)
+- **M.S., Information Systems** - Northwest Missouri State University (2016-2017)
+- **B.Tech, Computer Science and Engineering** - St. Martins Engineering College, JNTUH (2012-2016)
