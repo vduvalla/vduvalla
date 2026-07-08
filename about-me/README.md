@@ -1,6 +1,6 @@
 # Varun Raj Duvalla &nbsp;·&nbsp; [Resume](https://vduvalla.github.io/vduvalla/resume/resume.html)
 
-**Senior Data Scientist - AI-Driven Financial Forecasting | MLOps | FinTech**
+**Senior Data Scientist - Applied ML - Decision Science - Financial Analytics**
 
 📧 varun.duvalla@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://linkedin.com/in/duvallavarunraj) &nbsp;|&nbsp; 🎓 [Google Scholar](https://scholar.google.com/citations?user=J-78yCwAAAAJ&hl=en)
 
