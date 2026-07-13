@@ -97,7 +97,7 @@ I'm currently focused on four areas where agentic AI meets financial analytics:
 
 - [AI in Asset Management: Combining Machine Learning with Human Insight - A Technical Review](https://doi.org/10.52783/jisem.v10i60s.13039)
 - [Human-AI Collaboration in Customer Behavior Research: Personalizing Financial Services](https://doi.org/10.32996/jcsts.2025.7.4.12)
-- [AI-Powered Credit Risk Assessment: Transforming Lending in FinTech](https://doi.org/10.37745/ejcsit.2013vol13n23115131)
+- [AI-Powered Credit Risk Assessment: Transforming Lending in FinTech]([https://doi.org/10.37745/ejcsit.2013vol13n23115131](https://eajournals.org/ejcsit/vol13-issue23-2025/ai-powered-credit-risk-assessment-transforming-lending-in-fintech/))
 - [AI-Driven Financial Crisis Prediction: Technical Frameworks and Implementation Strategies](https://doi.org/10.30574/wjaets.2025.15.2.0675)
 - [Real-Time Fraud Detection in Digital Payments: Leveraging AI and Behavioral Analytics](https://doi.org/10.30574/wjarr.2025.26.2.1778)
 
